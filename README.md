@@ -1,6 +1,47 @@
-# Getting Started with Create React App
+# Folder structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App.js
+config.js
+routes.js
+
+modules/
+  common/
+    components/
+      index.js
+      ComponentName/
+        index.js
+        ComponentName.js
+        ComponentName.test.js
+        ComponentName.stories.js
+        SubComponentName.js
+        SubComponentName.test.js
+    utils/
+      index.js
+      util-name.js
+      util-name.test.js
+
+  feature-name/
+    components/
+      index.js
+      ComponentName/
+        index.js
+        ComponentName.js
+        ComponentName.test.js
+        ComponentName.stories.js
+        SubComponentName.js
+        SubComponentName.test.js
+    pages/
+      index.js
+      PageName/
+        index.js
+        PageName.js
+        PageName.test.js
+    utils/
+      index.js
+      util-name.js
+      util-name.test.js
+
+
 
 ## Available Scripts
 
