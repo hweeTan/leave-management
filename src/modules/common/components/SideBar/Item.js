@@ -22,8 +22,8 @@ const StyledItem = styled.a`
     cursor: pointer;
   }
 
-  ${({ active }) =>
-    active
+  ${({ $active }) =>
+    $active
       ? `
     background-color: ${colors.black};
 
@@ -43,9 +43,9 @@ const StyledItem = styled.a`
   `}
 `
 
-const Item = ({ label, ActiveIcon, Icon, href, active }) => {
+const Item = ({ label, ActiveIcon, Icon, active, ...props }) => {
   return (
-    <StyledItem href={href} active={!!active}>
+    <StyledItem $active={active} {...props}>
       {!!active ? (
         <ActiveIcon color={colors.primary} />
       ) : (
@@ -60,8 +60,7 @@ Item.propTypes = {
   label: PropTypes.string.isRequired,
   ActiveIcon: PropTypes.func.isRequired,
   Icon: PropTypes.func.isRequired,
-  href: PropTypes.string.isRequired,
-  active: PropTypes.bool,
+  active: PropTypes.bool.isRequired,
 }
 
 export default Item

@@ -1,5 +1,5 @@
 # Folder structure
-
+```
 App.js
 config.js
 routes.js
@@ -40,8 +40,7 @@ modules/
       index.js
       util-name.js
       util-name.test.js
-
-
+```
 
 ## Available Scripts
 
