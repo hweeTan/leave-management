@@ -20,6 +20,7 @@ const colors = {
   tealLight: '#ECEEF0',
 
   gray1: '#333',
+  gray2: '#4F4F4F',
   gray4: '#CACACA',
   gray5: '#E0E0E0',
 }
