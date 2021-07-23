@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 const mocks = [
   {
     id: '0',
@@ -39,20 +37,4 @@ const mocks = [
   },
 ]
 
-const useGetUrgentLeaveRequest = () => {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState(null)
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setData(mocks)
-      setLoading(false)
-    }, 1000)
-
-    return () => clearTimeout(timeout)
-  }, [])
-
-  return { loading, data }
-}
-
-export default useGetUrgentLeaveRequest
+export default mocks
