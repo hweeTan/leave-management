@@ -12,7 +12,7 @@ function App() {
       <GlobalStyle />
       <Header fixed />
       <Page>
-        <SideBar>
+        <SideBar fixed>
           {routes.map(({ path, icon, activeIcon, label }) => (
             <SideBar.RouterItem
               key={path}

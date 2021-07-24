@@ -11,6 +11,38 @@ const Dashboard = () => (
       <Grid.Item span={6}>
         <UrgentLeavesWidget />
       </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
+
+      <Grid.Item span={6}>
+        <UrgentLeavesWidget />
+      </Grid.Item>
     </Grid>
   </Page.Content>
 )

@@ -12,6 +12,7 @@ import {
   Cog,
   CogFilled,
 } from '../Icons'
+import Page from '../Page'
 import SideBar from './SideBar'
 
 export default {
@@ -49,17 +50,19 @@ const routes = [
 const Template = () => (
   <>
     <GlobalStyle />
-    <SideBar>
-      {routes.map(({ path, icon, activeIcon, label }, index) => (
-        <SideBar.Item
-          label={label}
-          href={path}
-          Icon={icon}
-          ActiveIcon={activeIcon}
-          active={index === 1}
-        />
-      ))}
-    </SideBar>
+    <Page>
+      <SideBar>
+        {routes.map(({ path, icon, activeIcon, label }, index) => (
+          <SideBar.Item
+            label={label}
+            href={path}
+            Icon={icon}
+            ActiveIcon={activeIcon}
+            active={index === 1}
+          />
+        ))}
+      </SideBar>
+    </Page>
   </>
 )
 

@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import Content from './Content'
 
 const Page = styled.div`
-  min-height: calc(100vh);
+  position: relative;
   padding-top: 3.5rem;
-  display: flex;
+  min-height: 100vh;
 `
 
 Page.Content = Content

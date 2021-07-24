@@ -7,6 +7,19 @@ import Item from './Item'
 import RouterItem from './RouterItem'
 
 const StyledSidebar = styled.nav`
+  ${({ fixed }) =>
+    fixed
+      ? `
+        position: fixed;
+        top: 3.5rem;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        `
+      : ''}
+
+  min-height: calc(100vh - 3.5rem);
+  position: absolute;
   width: 13.75rem;
   background-color: ${colors.tealDark};
 `
