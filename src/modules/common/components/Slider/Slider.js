@@ -16,6 +16,10 @@ const StyledSlider = styled.div`
 
   .swiper-slide {
     padding: 0 2.5rem;
+
+    @media only screen and (max-width: 768px) {
+      padding: 0;
+    }
   }
 `
 
@@ -51,6 +55,10 @@ const StyledNavigationButton = styled.button`
       background-color: transparent;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 const PaginationWrapper = styled.div`
@@ -69,41 +77,43 @@ const PaginationWrapper = styled.div`
       background-color: ${colors.primary};
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    text-align: left;
+  }
 `
 
-const Slider = ({ data, renderItem, getKey }) => {
-  return (
-    <StyledSlider>
-      <Swiper
-        spaceBetween={48}
-        slidesPerView={1}
-        navigation={{
-          prevEl: '.prevBtn',
-          nextEl: '.nextBtn',
-        }}
-        pagination={{
-          type: 'bullets',
-          el: '.paginationWrapper',
-        }}
-      >
-        {data.map((item) => (
-          <SwiperSlide key={getKey(item)}>{renderItem(item)}</SwiperSlide>
-        ))}
+const Slider = ({ children }) => (
+  <StyledSlider>
+    <Swiper
+      spaceBetween={48}
+      slidesPerView={1}
+      navigation={{
+        prevEl: '.prevBtn',
+        nextEl: '.nextBtn',
+      }}
+      pagination={{
+        type: 'bullets',
+        el: '.paginationWrapper',
+      }}
+    >
+      {React.Children.map(children, (child) => (
+        <SwiperSlide>{child}</SwiperSlide>
+      ))}
 
-        <div slot='container-end'>
-          <StyledNavigationButton className='prevBtn'>
-            <ChevronLeft color={colors.gray2} />
-          </StyledNavigationButton>
+      <div slot='container-end'>
+        <StyledNavigationButton className='prevBtn'>
+          <ChevronLeft color={colors.gray2} />
+        </StyledNavigationButton>
 
-          <StyledNavigationButton className='nextBtn'>
-            <ChevronRight color={colors.gray2} />
-          </StyledNavigationButton>
+        <StyledNavigationButton className='nextBtn'>
+          <ChevronRight color={colors.gray2} />
+        </StyledNavigationButton>
 
-          <PaginationWrapper className='paginationWrapper' />
-        </div>
-      </Swiper>
-    </StyledSlider>
-  )
-}
+        <PaginationWrapper className='paginationWrapper' />
+      </div>
+    </Swiper>
+  </StyledSlider>
+)
 
 export default Slider

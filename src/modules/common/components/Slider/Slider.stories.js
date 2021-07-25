@@ -1,7 +1,6 @@
 import React from 'react'
 
 import GlobalStyle from '../GlobalStyle'
-import Box from '../Box'
 import Slider from './Slider'
 
 export default {
@@ -9,25 +8,15 @@ export default {
   component: Slider,
 }
 
-const data = [...new Array(10)].map((_, index) => ({
-  id: index,
-  title: `Title - ${index + 1}`,
-  content: `Content for ${index + 1} subject`,
-}))
-
-const renderItem = ({ title, content }) => (
-  <Box style={{ margin: '2rem' }}>
-    <h5>{title}</h5>
-    <p>{content}</p>
-  </Box>
-)
-
-const getKey = ({ id }) => id
-
 const Template = () => (
   <>
     <GlobalStyle />
-    <Slider data={data} renderItem={renderItem} getKey={getKey} />
+    <Slider>
+      <div style={{ height: 100, backgroundColor: 'aliceblue' }}>Slide 1</div>
+      <div style={{ height: 100, backgroundColor: 'aliceblue' }}>Slide 2</div>
+      <div style={{ height: 100, backgroundColor: 'aliceblue' }}>Slide 3</div>
+      <div style={{ height: 100, backgroundColor: 'aliceblue' }}>Slide 4</div>
+    </Slider>
   </>
 )
 

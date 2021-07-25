@@ -16,15 +16,15 @@ const WidgetHeader = styled.span`
   margin-bottom: 1.5rem;
 `
 
-const renderItem = (leaveRequest) => <LeaveRequest {...leaveRequest} />
-
-const getKey = ({ id }) => id
-
 const UrgentLeavesWidget = () => {
   return (
     <Box>
       <WidgetHeader>Urgent leave requests ({mocks.length})</WidgetHeader>
-      <Slider data={mocks} renderItem={renderItem} getKey={getKey} />
+      <Slider>
+        {mocks.map((leaveRequest) => (
+          <LeaveRequest key={leaveRequest.id} {...leaveRequest} />
+        ))}
+      </Slider>
     </Box>
   )
 }

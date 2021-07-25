@@ -16,10 +16,12 @@ const StyledSidebar = styled.nav`
         right: 0;
         z-index: 2;
         `
-      : ''}
+      : `
+        position: absolute;
+        `}
 
   min-height: calc(100vh - 3.5rem);
-  position: absolute;
+
   width: 13.75rem;
   background-color: ${colors.tealDark};
 `
