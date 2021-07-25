@@ -5,8 +5,9 @@ import Box from 'modules/common/components/Box'
 import Slider from 'modules/common/components/Slider'
 import { colors, typography } from 'modules/common/utils/styles'
 
-import mocks from './data/mocks'
+import useGetUrgentLeaveRequests from './data/useGetUrgentLeaveRequests'
 import LeaveRequest from './LeaveRequest'
+import Loader from './Loader'
 
 const WidgetHeader = styled.span`
   display: block;
@@ -17,11 +18,19 @@ const WidgetHeader = styled.span`
 `
 
 const UrgentLeavesWidget = () => {
+  const { loading, data: urgentLeaveRequests } = useGetUrgentLeaveRequests()
+
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <Box>
-      <WidgetHeader>Urgent leave requests ({mocks.length})</WidgetHeader>
+      <WidgetHeader>
+        Urgent leave requests ({urgentLeaveRequests.length})
+      </WidgetHeader>
       <Slider>
-        {mocks.map((leaveRequest) => (
+        {urgentLeaveRequests.map((leaveRequest) => (
           <LeaveRequest key={leaveRequest.id} {...leaveRequest} />
         ))}
       </Slider>
