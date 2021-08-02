@@ -25,7 +25,7 @@ const UrgentLeavesWidget = () => {
   }
 
   return (
-    <Box>
+    <Box style={{ height: '100%' }}>
       <WidgetHeader>
         Urgent leave requests ({urgentLeaveRequests.length})
       </WidgetHeader>

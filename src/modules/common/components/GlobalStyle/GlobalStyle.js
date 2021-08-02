@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
     ${typography.family.base}
+    ${typography.weight.normal}
   }
 
   body {
