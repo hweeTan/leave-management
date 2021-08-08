@@ -56,28 +56,26 @@ const LeavePlanChartWidget = () => {
   const { data, config } = response
 
   return (
-    <Box style={{ height: '100%' }}>
-      <Flexbox alignItems='flex-end'>
-        <div style={{ flex: 1, paddingRight: '1.5rem' }}>
-          <WidgetHeader>Leave Plan</WidgetHeader>
-          <Description>
-            Shows the planed leaves for each team in the next 6 months.
-          </Description>
+    <Box as={Flexbox} style={{ height: '100%' }}>
+      <div style={{ flex: 1, paddingRight: '1.5rem' }}>
+        <WidgetHeader>Leave Plan</WidgetHeader>
+        <Description>
+          Shows the planed leaves for each team in the next 6 months.
+        </Description>
 
-          <Grid style={{ gap: '0.375rem' }}>
-            {config.keys.map(({ label, color, id }) => (
-              <Grid.Item span={6} key={id}>
-                <Tag color={color}>{label}</Tag>
-              </Grid.Item>
-            ))}
-          </Grid>
-        </div>
-        <BarChart
-          data={data}
-          config={config}
-          style={{ flexBasis: 240, height: 178 }}
-        />
-      </Flexbox>
+        <Grid style={{ gap: '0.375rem' }}>
+          {config.keys.map(({ label, color, id }) => (
+            <Grid.Item span={6} key={id}>
+              <Tag color={color}>{label}</Tag>
+            </Grid.Item>
+          ))}
+        </Grid>
+      </div>
+      <BarChart
+        data={data}
+        config={config}
+        style={{ flexBasis: 240, height: 178 }}
+      />
     </Box>
   )
 }

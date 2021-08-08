@@ -93,7 +93,7 @@ const config = {
 const Template = () => (
   <>
     <GlobalStyle />
-    <BarChart data={data} config={config} style={{ height: 400 }} />
+    <BarChart data={data} config={config} style={{ height: 178, width: 240 }} />
   </>
 )
 

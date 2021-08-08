@@ -53,8 +53,6 @@ const BarShape = (props) => {
 const BarChart = ({ data, config, ...restProps }) => {
   const { keys, unit } = config
 
-  const allIds = [...keys].reverse()
-
   return (
     <ChartWrapper {...restProps}>
       <ResponsiveContainer width='100%' height='100%'>
@@ -65,6 +63,7 @@ const BarChart = ({ data, config, ...restProps }) => {
         >
           <XAxis dataKey='name' axisLine={false} tickLine={false} />
           <Tooltip
+            allowEscapeViewBox={{ x: true, y: false }}
             cursor={false}
             contentStyle={{
               backgroundColor: colors.white,
@@ -80,7 +79,7 @@ const BarChart = ({ data, config, ...restProps }) => {
             }}
           />
 
-          {allIds.map(({ id, color }) => (
+          {[...keys].reverse().map(({ id, color }) => (
             <Bar
               key={id}
               dataKey={id}

@@ -1,34 +1,26 @@
 import Skeleton from 'react-loading-skeleton'
-import styled from 'styled-components'
 
+import Grid from 'modules/common/components/Grid'
 import Box from 'modules/common/components/Box'
 import Flexbox from 'modules/common/components/Flexbox'
 
-const ContentWrapper = styled.div`
-  padding: 0 2.5rem;
-  margin-top: 2rem;
-`
-
 const Loader = () => (
-  <Box>
-    <Skeleton width={240} height={24} />
+  <Box as={Flexbox} style={{ height: '100%' }}>
+    <div style={{ flex: 1, paddingRight: '1.5rem' }}>
+      <Skeleton width={140} height={24} />
+      <Skeleton width={340} height={24} style={{ margin: '0.5rem 0 1rem' }} />
 
-    <ContentWrapper>
-      <Flexbox alignItems='center' justifyContent='space-between'>
-        <Flexbox>
-          <Skeleton circle width={56} height={56} style={{ marginRight: '1rem' }} />
-          <Flexbox direction='column' justifyContent='space-between'>
-            <Skeleton width={120} height={16} />
-            <Skeleton width={100} height={26} />
-          </Flexbox>
-        </Flexbox>
-
-        <Skeleton width={132} height={32} style={{ borderRadius: 16 }} />
-      </Flexbox>
-
-      <Skeleton height={16} style={{ marginTop: 16 }} />
-      <Skeleton height={16} style={{ marginTop: 8 }} />
-    </ContentWrapper>
+      <Grid style={{ gap: '0.375rem' }}>
+        {[...new Array(5)].map((_, index) => (
+          <Grid.Item span={6} key={index}>
+            <Skeleton width={100} height={26} style={{ borderRadius: 4 }} />
+          </Grid.Item>
+        ))}
+      </Grid>
+    </div>
+    <div>
+      <Skeleton width={300} height={178} />
+    </div>
   </Box>
 )
 
