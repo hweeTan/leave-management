@@ -1,4 +1,5 @@
 import LeaveManagementDashboard from 'modules/leave-management/pages/Dashboard'
+import LeaveRequest from 'modules/leave-management/pages/LeaveRequest'
 import SamplePage from 'modules/other/pages/SamplePage'
 
 import {
@@ -12,13 +13,14 @@ import {
   CogFilled,
 } from 'modules/common/components/Icons'
 
-const routes = [
+export const mainRoutes = [
   {
     path: '/',
     icon: Home,
     activeIcon: HomeFilled,
     label: 'Home',
     ContentComponent: SamplePage,
+    exact: true,
   },
   {
     path: '/leave-management',
@@ -26,6 +28,7 @@ const routes = [
     activeIcon: ClipboardFilled,
     label: 'Leave Management',
     ContentComponent: LeaveManagementDashboard,
+    exact: true,
   },
   {
     path: '/documents',
@@ -43,4 +46,13 @@ const routes = [
   },
 ]
 
-export default routes
+export const otherRoutes = [
+  {
+    path: '/leave-management/:id',
+    ContentComponent: LeaveRequest,
+  },
+]
+
+const allRoutes = [...mainRoutes, ...otherRoutes]
+
+export default allRoutes

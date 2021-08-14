@@ -5,7 +5,7 @@ import Item from './Item'
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 1.5rem;
+  gap: 1.5rem;
 `
 
 Grid.Item = Item

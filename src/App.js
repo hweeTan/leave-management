@@ -4,7 +4,7 @@ import GlobalStyle from 'modules/common/components/GlobalStyle'
 import Header from 'modules/common/components/Header'
 import SideBar from 'modules/common/components/SideBar'
 import Page from 'modules/common/components/Page'
-import routes from './routes'
+import routes, { mainRoutes } from './routes'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Header fixed />
       <Page>
         <SideBar fixed>
-          {routes.map(({ path, icon, activeIcon, label }) => (
+          {mainRoutes.map(({ path, icon, activeIcon, label }) => (
             <SideBar.RouterItem
               key={path}
               label={label}
@@ -24,8 +24,8 @@ function App() {
           ))}
         </SideBar>
         <Switch>
-          {routes.map(({ ContentComponent, path }) => (
-            <Route path={path} exact key={path} component={ContentComponent} />
+          {routes.map(({ ContentComponent, path, exact }) => (
+            <Route path={path} exact={exact} key={path} component={ContentComponent} />
           ))}
           <Route path='*'>
             <Page.Content>404 Not Found</Page.Content>

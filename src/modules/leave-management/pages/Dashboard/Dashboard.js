@@ -5,15 +5,19 @@ import Grid from 'modules/common/components/Grid'
 
 import UrgentLeavesWidget from '../../components/UrgentLeavesWidget'
 import LeavePlanChartWidget from '../../components/LeavePlanChartWidget'
+import LeavesTable from '../../components/LeavesTable'
 
 const Dashboard = () => (
   <Page.Content>
-    <Grid style={{ gridAutoRows: '1fr' }}>
+    <Grid>
       <Grid.Item span={6}>
         <UrgentLeavesWidget />
       </Grid.Item>
       <Grid.Item span={6}>
         <LeavePlanChartWidget />
+      </Grid.Item>
+      <Grid.Item span={12}>
+        <LeavesTable />
       </Grid.Item>
     </Grid>
   </Page.Content>

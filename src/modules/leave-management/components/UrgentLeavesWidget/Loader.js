@@ -28,6 +28,7 @@ const Loader = () => (
 
       <Skeleton height={16} style={{ marginTop: 16 }} />
       <Skeleton height={16} style={{ marginTop: 8 }} />
+      <Skeleton width={50} height={18} style={{ display: 'block', margin: '0.5rem auto 0' }} />
     </ContentWrapper>
   </Box>
 )
