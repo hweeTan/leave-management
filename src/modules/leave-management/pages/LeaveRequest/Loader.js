@@ -1,14 +1,8 @@
 import Skeleton from 'react-loading-skeleton'
-import styled from 'styled-components'
 
 import Page from 'modules/common/components/Page'
 import Grid from 'modules/common/components/Grid'
 import Flexbox from 'modules/common/components/Flexbox'
-
-const ContentWrapper = styled.div`
-  padding: 0 2.5rem;
-  margin-top: 2rem;
-`
 
 const Loader = () => (
   <Page.Content>
@@ -16,8 +10,8 @@ const Loader = () => (
       <Grid.Item span={6} start={4}>
         <Skeleton width={240} height={24} />
 
-        <ContentWrapper>
-          <Flexbox alignItems='center' justifyContent='space-between'>
+        <Grid style={{ rowGap: '1rem', marginTop: '2.5rem' }}>
+          <Grid.Item span={12}>
             <Flexbox>
               <Skeleton
                 circle
@@ -30,18 +24,53 @@ const Loader = () => (
                 <Skeleton width={100} height={26} />
               </Flexbox>
             </Flexbox>
+          </Grid.Item>
 
-            <Skeleton width={132} height={32} style={{ borderRadius: 16 }} />
-          </Flexbox>
+          <Grid.Item span={6}>
+            <Skeleton
+              width={100}
+              height={20}
+              style={{ display: 'block', marginBottom: '0.25rem' }}
+            />
+            <Skeleton width={160} height={24} />
+          </Grid.Item>
 
-          <Skeleton height={16} style={{ marginTop: 16 }} />
-          <Skeleton height={16} style={{ marginTop: 8 }} />
-          <Skeleton
-            width={50}
-            height={18}
-            style={{ display: 'block', margin: '0.5rem auto 0' }}
-          />
-        </ContentWrapper>
+          <Grid.Item span={6}>
+            <Skeleton
+              width={100}
+              height={20}
+              style={{ display: 'block', marginBottom: '0.25rem' }}
+            />
+            <Skeleton width={160} height={24} />
+          </Grid.Item>
+
+          <Grid.Item span={6}>
+            <Skeleton
+              width={100}
+              height={20}
+              style={{ display: 'block', marginBottom: '0.25rem' }}
+            />
+            <Skeleton width={160} height={24} />
+          </Grid.Item>
+
+          <Grid.Item span={6}>
+            <Skeleton
+              width={100}
+              height={20}
+              style={{ display: 'block', marginBottom: '0.25rem' }}
+            />
+            <Skeleton width={160} height={24} />
+          </Grid.Item>
+
+          <Grid.Item span={12}>
+            <Skeleton
+              width={100}
+              height={20}
+              style={{ display: 'block', marginBottom: '0.25rem' }}
+            />
+            <Skeleton width={360} height={24} />
+          </Grid.Item>
+        </Grid>
       </Grid.Item>
     </Grid>
   </Page.Content>
