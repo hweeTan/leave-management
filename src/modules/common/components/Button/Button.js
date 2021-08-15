@@ -43,7 +43,14 @@ const StyledButton = styled.button`
   align-items: center;
   ${typography.weight.semibold}
 
-  ${({ variant }) => {
+  ${({ variant, disabled }) => {
+    if (disabled) {
+      return `
+        background: ${colors.gray4};
+        color: ${colors.gray2};
+      `
+    }
+
     const { background, hover, text } = COLOR_MAPPING[variant]
 
     return `
@@ -68,9 +75,17 @@ const StyledButton = styled.button`
   }}
 `
 
-const Button = ({ label, variant, size }) => {
+const Button = ({ label, variant, size, disabled, onClick, ...restProps }) => {
   return (
-    <StyledButton variant={variant} size={size}>{label}</StyledButton>
+    <StyledButton
+      {...restProps}
+      disabled={disabled}
+      onClick={!disabled && onClick}
+      variant={variant}
+      size={size}
+    >
+      {label}
+    </StyledButton>
   )
 }
 
@@ -78,6 +93,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(['primary', 'secondary', 'danger']),
   size: PropTypes.oneOf(['large', 'medium']),
+  disabled: PropTypes.bool,
 }
 
 Button.defaultProps = {
