@@ -12,8 +12,17 @@ const StyledInput = styled.input`
   border-style: solid;
   ${typography.size.small}
   color: ${colors.gray1};
-  padding: 0 1rem;
-  height: 2.5rem;
+  ${({ rows }) =>
+    rows
+      ? `
+    height: auto;
+    padding: 0.5rem 1rem;
+    `
+      : `
+    height: 2.5rem;
+    padding: 0 1rem;
+  `}
+
   ${({ hasIcon }) => (hasIcon ? 'padding-left: 3rem;' : '')}
 
   ${({ hasError }) => (hasError ? `border-color: ${colors.red};` : '')}
@@ -34,12 +43,14 @@ const IconWrapper = styled.div`
   top: 0.5rem;
 `
 
-const Input = ({ placeholder, icon, ...restProps }) => (
+const Input = ({ placeholder, icon, rows, ...restProps }) => (
   <Field {...restProps}>
     {({ input, meta }) => (
       <div style={{ position: 'relative' }}>
         {icon && <IconWrapper>{icon}</IconWrapper>}
         <StyledInput
+          as={rows ? 'textarea' : 'input'}
+          rows={rows}
           type='text'
           hasIcon={icon}
           hasError={meta.error && meta.touched}

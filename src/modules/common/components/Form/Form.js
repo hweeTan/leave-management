@@ -4,10 +4,10 @@ import Input from './Input'
 import SubmitButton from './SubmitButton'
 import RadioGroup, { Radio } from './RadioGroup'
 
-const Form = ({ onSubmit, children }) => (
+const Form = ({ onSubmit, children, ...restProps }) => (
   <FinalForm onSubmit={onSubmit}>
     {(props) => (
-      <form onSubmit={props.handleSubmit}>
+      <form {...restProps} onSubmit={props.handleSubmit}>
         {children}
       </form>
     )}

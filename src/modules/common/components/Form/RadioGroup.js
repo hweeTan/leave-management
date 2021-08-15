@@ -16,7 +16,8 @@ const StyledRadio = styled.input`
     display: flex;
     width: 1.25rem;
     height: 1.25rem;
-    border: 1.5px ${colors.gray1} solid;
+    border: 1.5px ${({ hasError }) => (hasError ? colors.red : colors.gray1)}
+      solid;
     margin: 0.125rem 0.625rem 0.125rem 0.125rem;
     border-radius: 50%;
     align-items: center;
@@ -46,9 +47,9 @@ const StyledLabel = styled.label`
 
 const Radio = ({ label, ...restProps }) => (
   <Field {...restProps}>
-    {({ input }) => (
+    {({ input, meta }) => (
       <StyledLabel>
-        <StyledRadio {...input} />
+        <StyledRadio hasError={meta.touched && meta.error} {...input} />
         <span />
         {label}
       </StyledLabel>
@@ -63,8 +64,8 @@ const RadioGroup = ({ name, label, children, required, ...restProps }) => {
     <FieldWrapper {...restProps}>
       {!!label && (
         <Label htmlFor={name}>
-          {required && '*'}
           {label}
+          {!required && ' (Optional)'}
         </Label>
       )}
       <div style={{ position: 'relative' }}>

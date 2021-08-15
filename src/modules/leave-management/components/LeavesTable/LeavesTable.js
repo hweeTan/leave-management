@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Table from 'modules/common/components/Table'
-import { colors, typography } from 'modules/common/utils/styles'
 
 import useGetLeaves from './data/useGetLeaves'
 import Loader from './Loader'
