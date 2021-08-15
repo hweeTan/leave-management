@@ -30,45 +30,45 @@ const Loader = () => (
             <Skeleton
               width={100}
               height={20}
-              style={{ display: 'block', marginBottom: '0.25rem' }}
+              style={{ display: 'block', marginBottom: '0.5rem' }}
             />
-            <Skeleton width={160} height={24} />
+            <Skeleton width={160} height={20} />
           </Grid.Item>
 
           <Grid.Item span={6}>
             <Skeleton
               width={100}
               height={20}
-              style={{ display: 'block', marginBottom: '0.25rem' }}
+              style={{ display: 'block', marginBottom: '0.5rem' }}
             />
-            <Skeleton width={160} height={24} />
+            <Skeleton width={160} height={20} />
           </Grid.Item>
 
           <Grid.Item span={6}>
             <Skeleton
               width={100}
               height={20}
-              style={{ display: 'block', marginBottom: '0.25rem' }}
+              style={{ display: 'block', marginBottom: '0.5rem' }}
             />
-            <Skeleton width={160} height={24} />
+            <Skeleton width={160} height={20} />
           </Grid.Item>
 
           <Grid.Item span={6}>
             <Skeleton
               width={100}
               height={20}
-              style={{ display: 'block', marginBottom: '0.25rem' }}
+              style={{ display: 'block', marginBottom: '0.5rem' }}
             />
-            <Skeleton width={160} height={24} />
+            <Skeleton width={160} height={20} />
           </Grid.Item>
 
           <Grid.Item span={12}>
             <Skeleton
               width={100}
               height={20}
-              style={{ display: 'block', marginBottom: '0.25rem' }}
+              style={{ display: 'block', marginBottom: '0.5rem' }}
             />
-            <Skeleton width={360} height={24} />
+            <Skeleton width={360} height={20} />
           </Grid.Item>
         </Grid>
       </Grid.Item>

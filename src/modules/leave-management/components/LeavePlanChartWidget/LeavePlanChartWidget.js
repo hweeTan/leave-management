@@ -40,7 +40,7 @@ const Tag = styled.span`
       width: 1rem;
       height: 0.25rem;
       border-radius: 2px;
-      background-color: ${color};
+      background-color: ${colors[color]};
       margin-right: 0.5rem;
     }
   `}

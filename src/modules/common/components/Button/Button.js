@@ -43,6 +43,10 @@ const StyledButton = styled.button`
   align-items: center;
   ${typography.weight.semibold}
 
+  + button {
+    margin-left: 1rem;
+  }
+
   ${({ variant, disabled }) => {
     if (disabled) {
       return `
@@ -99,6 +103,7 @@ Button.propTypes = {
 Button.defaultProps = {
   variant: 'primary',
   size: 'large',
+  type: 'button',
 }
 
 export default Button

@@ -44,7 +44,9 @@ const Loader = () => (
           <Table.Cell>
             <Skeleton width={100} height={24} />
           </Table.Cell>
-          <Table.Cell />
+          <Table.Cell>
+            <Skeleton width={80} height={24} />
+          </Table.Cell>
         </Table.Row>
       ))}
     </Table.Body>

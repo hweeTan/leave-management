@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import Page from 'modules/common/components/Page'
 import Grid from 'modules/common/components/Grid'
@@ -8,13 +9,46 @@ import Breadcrumb from 'modules/common/components/Breadcrumb'
 import Form from 'modules/common/components/Form'
 import Button from 'modules/common/components/Button'
 import Flexbox from 'modules/common/components/Flexbox'
+import Modal, { useModal } from 'modules/common/components/Modal'
 
 import useGetLeaveRequest from './data/useGetLeaveRequest'
 import Loader from './Loader'
 import ContentItem from './ContentItem'
 
 const LeaveRequest = () => {
+  const history = useHistory()
   const { loading, data } = useGetLeaveRequest()
+  const { showModal, hideModal } = useModal()
+
+  const onSubmit = (values) => {
+    const handleAfterSubmit = () => {
+      hideModal()
+      history.goBack()
+    }
+
+    if (values.status === 'accepted') {
+      showModal(() => (
+        <Modal title='Accept leave request'>
+          Do you want to accept this leave request?
+          <Modal.Actions>
+            <Button onClick={hideModal} label='Cancel' variant='secondary' />
+            <Button onClick={handleAfterSubmit} label='Accept' />
+          </Modal.Actions>
+        </Modal>
+      ))
+      return
+    }
+
+    showModal(() => (
+      <Modal title='Reject leave request'>
+        Do you want to reject this leave request?
+        <Modal.Actions>
+          <Button onClick={hideModal} label='Cancel' variant='secondary' />
+          <Button onClick={handleAfterSubmit} label='Reject' variant='danger' />
+        </Modal.Actions>
+      </Modal>
+    ))
+  }
 
   if (loading) {
     return <Loader />
@@ -54,10 +88,7 @@ const LeaveRequest = () => {
             </Grid.Item>
           </Grid>
 
-          <Form
-            style={{ marginTop: '1.5rem' }}
-            onSubmit={(values) => alert('submitted ' + JSON.stringify(values))}
-          >
+          <Form style={{ marginTop: '1.5rem' }} onSubmit={onSubmit}>
             <Form.RadioGroup name='status' required>
               <Form.Radio value='accepted' label='Accept' />
               <Form.Radio value='rejected' label='Reject' />
@@ -75,6 +106,7 @@ const LeaveRequest = () => {
                 label='Cancel'
                 variant='secondary'
                 style={{ marginRight: '1.5rem' }}
+                onClick={() => history.goBack()}
               />
               <Form.SubmitButton label='Submit' />
             </Flexbox>
