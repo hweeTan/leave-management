@@ -10,6 +10,7 @@ import Form from 'modules/common/components/Form'
 import Button from 'modules/common/components/Button'
 import Flexbox from 'modules/common/components/Flexbox'
 import Modal, { useModal } from 'modules/common/components/Modal'
+import { useNotification } from 'modules/common/components/Notification'
 
 import useGetLeaveRequest from './data/useGetLeaveRequest'
 import Loader from './Loader'
@@ -19,10 +20,16 @@ const LeaveRequest = () => {
   const history = useHistory()
   const { loading, data } = useGetLeaveRequest()
   const { showModal, hideModal } = useModal()
+  const { showSuccess, showWarning } = useNotification()
 
   const onSubmit = (values) => {
     const handleAfterSubmit = () => {
       hideModal()
+      if (values.status === 'accepted') {
+        showSuccess('You have successfully accepted the leave request!')
+      } else {
+        showWarning('You have successfully rejected the leave request!')
+      }
       history.goBack()
     }
 
